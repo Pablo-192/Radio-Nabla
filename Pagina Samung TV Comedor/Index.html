@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Nabla</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al CSS -->
+</head>
+<body>
+    <div class="image-container"></div>
+    
+    <div class="player-container">
+        <div class="player">
+            <div class="logo-container">
+                <img src="logo.png" alt="" class="logo">
+            </div>
+            <audio id="audio" src="https://stream-166.zeno.fm/wsske9pclxvvv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ3c3NrZTlwY2x4dnZ2IiwiaG9zdCI6InN0cmVhbS0xNjYuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6IjlmcXZKU1RKU3phUTE1bzgtalowelEiLCJpYXQiOjE3NDE5ODU4NDQsImV4cCI6MTc0MTk4NTkwNH0.dXJZx-Gq7I3TLPKu4JL2qRBfmzXvzKNURmwquXkz6rE" preload="auto" autoplay></audio>
+            <div class="controls">
+                <!-- Contenedor para el logo -->
+                <button id="play">▶</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = document.getElementById("audio");
+            const playButton = document.getElementById("play");
+            
+            audio.play().catch(error => console.log("Autoplay bloqueado: ", error));
+            
+            playButton.addEventListener("click", function() {
+                if (audio.paused) {
+                    audio.play();
+                    playButton.innerHTML = "⬛"; // Icono de Ready
+                } else {
+                    audio.pause();
+                    playButton.innerHTML = "▶"; // Icono de Play
+                }
+            });
+        });
+    </script>
+</body>
+</html>
